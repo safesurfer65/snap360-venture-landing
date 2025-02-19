@@ -1,45 +1,10 @@
 
 import { motion } from "framer-motion";
-import { Camera, Globe, ArrowUp, MessageCircle, Send } from "lucide-react";
+import { Camera, Globe, ArrowUp } from "lucide-react";
 import Navbar from "../components/Navbar";
 import ServiceCard from "../components/ServiceCard";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
-  const { toast } = useToast();
-
-  const handleSocialClick = (platform: string) => {
-    let url = '';
-    const message = encodeURIComponent("Hi! I'm interested in your photography services.");
-    
-    switch (platform) {
-      case 'whatsapp':
-        url = `https://wa.me/+1234567890?text=${message}`; // Replace with your WhatsApp number
-        break;
-      case 'messenger':
-        url = 'https://m.me/YourFacebookPage'; // Replace with your Facebook page username
-        break;
-      case 'telegram':
-        url = 'https://t.me/YourTelegramUsername'; // Replace with your Telegram username
-        break;
-    }
-
-    window.open(url, '_blank');
-    toast({
-      title: "Opening " + platform,
-      description: "Redirecting you to continue the conversation.",
-    });
-  };
-
   return (
     <div className="min-h-screen bg-secondary">
       <Navbar />
@@ -127,51 +92,13 @@ const Index = () => {
           >
             Ready to bring your vision to life? Contact us to discuss your project.
           </motion.p>
-          <Dialog>
-            <DialogTrigger asChild>
-              <motion.button
-                className="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Get in Touch
-              </motion.button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-md">
-              <DialogHeader>
-                <DialogTitle>Contact Us</DialogTitle>
-                <DialogDescription>
-                  Choose your preferred messaging platform to start a conversation.
-                </DialogDescription>
-              </DialogHeader>
-              <div className="flex flex-col gap-4 mt-4">
-                <Button
-                  variant="outline"
-                  className="flex items-center justify-start gap-2 h-12"
-                  onClick={() => handleSocialClick('messenger')}
-                >
-                  <MessageCircle className="h-5 w-5 text-blue-600" />
-                  <span>Continue with Messenger</span>
-                </Button>
-                <Button
-                  variant="outline"
-                  className="flex items-center justify-start gap-2 h-12"
-                  onClick={() => handleSocialClick('whatsapp')}
-                >
-                  <MessageCircle className="h-5 w-5 text-green-600" />
-                  <span>Continue with WhatsApp</span>
-                </Button>
-                <Button
-                  variant="outline"
-                  className="flex items-center justify-start gap-2 h-12"
-                  onClick={() => handleSocialClick('telegram')}
-                >
-                  <Send className="h-5 w-5 text-blue-500" />
-                  <span>Continue with Telegram</span>
-                </Button>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <motion.button
+            className="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Get in Touch
+          </motion.button>
         </div>
       </section>
     </div>
