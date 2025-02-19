@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Camera, Globe, Drone } from "lucide-react";
+import { Camera, Globe, ArrowUp } from "lucide-react";
 import Navbar from "../components/Navbar";
 import ServiceCard from "../components/ServiceCard";
 
@@ -65,7 +65,7 @@ const Index = () => {
               description="Capturing the special moments of your events with professional photography services."
             />
             <ServiceCard
-              icon={Drone}
+              icon={ArrowUp}
               title="Aerial Photography"
               description="Stunning aerial perspectives of properties, events, and landscapes using state-of-the-art drone technology."
             />
